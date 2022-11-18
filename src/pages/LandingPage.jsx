@@ -1,0 +1,24 @@
+import { Link } from "react-router-dom"
+import img from "../assets/imageLandingPage.png"
+import imgGoogle from "../assets/google.png"
+const LandingPage =()=>{
+
+    return(
+         <div className="landing-page">
+                <div className="img-landing-page">
+                    <img  src={img} alt="" />
+                </div>
+                <div className="container">
+                    <h2>Tun<span>isia</span> Ap<span>p</span></h2>
+                    <p>The app you were always <br/> waiting for ! </p>
+                    <Link to={"home-page"}>
+                      Try Desktop Version
+                    </Link>
+                    <h4>or</h4>
+                    <img src={imgGoogle} alt="" />
+                </div>
+         </div>
+    )
+
+}
+export default LandingPage

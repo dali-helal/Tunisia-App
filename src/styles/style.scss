@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+$primary :#BF1020; 
+$secondery:#888888;
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    user-select: none;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+body{
+    background: #F6f6f6;
+}
+html{
+    scroll-padding-top: 150px
+}
+@import "./landingPage"; 
+@import "./nav"; 
+@import "./services";
+@import "./home"; 
+@import "./about";
+@import "./contact"
