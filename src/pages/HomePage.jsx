@@ -12,7 +12,7 @@ const HomePage = () => {
             <Home />
             <Services />
             <About />
-            <img src={img} alt="" style={{ width: "100%" }} />
+            <img src={img} alt="" className="banner" style={{ width: "100%" }} />
             <Contact />
         </>
     )

@@ -9,7 +9,7 @@ const Home = () => {
                     <h2>Tun<span>isia</span> Ap<span>p</span></h2>
                     <p>The app you were always <br /> waiting for ! </p>
                     <a href="#">
-                        <button>Get Started</button>
+                        Get Started
                     </a>
                 </div>
                 <div className="illustration" >

@@ -265,3 +265,23 @@
         }
     }
 }
+
+@media (max-width:640px){
+    #contact{
+        padding-inline: 5vw;
+        .container{
+            flex-direction: column;
+
+            form{
+                width:100%;
+                margin-bottom: 2rem;
+            }
+
+            .illustration{
+                width:100%;
+                justify-content: center;
+            }
+
+        }
+    }
+}

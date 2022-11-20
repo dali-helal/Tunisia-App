@@ -28,8 +28,9 @@
                 line-height: 2.5rem;
             }
 
-            button {
+            a {
                 background: $primary;
+                display: inline-block;
                 color: #FFFFFF;
                 padding: 1rem 1.5rem;
                 border-radius: 5px;
@@ -58,4 +59,39 @@
 
         }
     }
+}
+
+@media (max-width:640px){
+
+    #home{
+        .container{
+            min-height: calc(100vh - 100px);
+            flex-direction: column;
+
+            .text{
+                width:100%;
+                margin-bottom: 3rem;
+
+                h2{
+                    font-size: 2rem;
+                    margin-top: 2.5rem;
+                }
+
+                p{
+                    font-size: 1rem;
+                    margin-bottom: 0rem;
+                }
+
+                a{
+                    font-size: .75rem;
+                }
+            }
+
+            .illustration{
+                width:100%;
+                justify-content: center;
+            }
+        }
+    }
+
 }
