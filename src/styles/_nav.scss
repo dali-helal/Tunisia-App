@@ -1,17 +1,17 @@
-nav.animated{
-    padding: .5rem 7rem;
-    background:white;
-    box-shadow: 0px 2px 12px rgba(0,0,0 , 0.1);
+nav.animated {
+    padding: .5rem 10vw;
+    background: white;
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.1);
 
-    .logo-home{
-        img{
+    .logo-home {
+        img {
             transform: scale(.9);
         }
     }
 }
 
-nav{
-    padding: 2rem 7rem;
+nav {
+    padding: 2rem 10vw;
     position: sticky;
     top: 0px;
     z-index: 999;
@@ -21,45 +21,53 @@ nav{
     justify-content: space-between;
     transition: .5s;
 
-    .logo-home{
-        img{
+    .logo-home {
+        img {
             transition: .5s;
         }
     }
 
-    .list-nav-desktop{
-        ul{
-            a{  
+    .list-nav-desktop {
+        ul {
+            a {
                 position: relative;
                 margin: 0rem 0.75rem;
                 color: $primary;
                 font-weight: 700;
-                &::after{
+
+                &::after {
                     position: absolute;
                     content: "";
                     height: 4px;
                     width: 100%;
                     background: $primary;
-                    bottom:-8px;
+                    bottom: -8px;
                     right: 0px;
                     border-radius: 50px;
-                    transform: scale(0 , 1);
+                    transform: scale(0, 1);
                     transition: 0.6s;
                 }
-                &:hover::after{
+
+                &:hover::after {
                     transform: scale(1, 1);
                 }
             }
-            
+
         }
     }
-    .nav-btn{
-        padding:0.5rem 1.5rem ;
-        color: white; 
+
+    .nav-btn {
+        padding: 0.75rem 1.5rem;
+        color: white;
         background: $primary;
         border: none;
         border-radius: 5px;
         font-weight: 500;
         cursor: pointer;
+        transition: .5s;
+
+        &:hover{
+            transform: scale(1.1);
+        }
     }
 }

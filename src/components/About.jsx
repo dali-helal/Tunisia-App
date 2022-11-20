@@ -10,7 +10,7 @@ const About = () => {
                 <span>Who we are</span>
             </header>
             <div className="container">
-                <div>
+                <div className="text">
                     <p>
                         Tunisia App is an original idea from a tunisian startup called JustNet . Tunisia App helps tunisian citenzens do day-to-day activities like finding buses , looking for jobs and visiting the doctor ...
                         Tunisia App is available in these versions :<br/>
@@ -19,7 +19,7 @@ const About = () => {
                         - Web app
                     </p>
                 </div>
-                <div>
+                <div className="flag" >
                     <img src={aboutImg} alt="" />
                 </div>
             </div>

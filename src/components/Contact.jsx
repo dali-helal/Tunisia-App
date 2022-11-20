@@ -1,5 +1,6 @@
 
 import img from "../assets/contactImage.png"
+
 const Contact = () => {
     return (
         <div id="contact">
@@ -9,38 +10,42 @@ const Contact = () => {
             </header>
             <div className="container">
                 <form>
-                    <div>
-                        <div>
+                    <div className="line-one" >
+                        <div className="input" >
                             <input
                                 type="text"
+                                required={true}
                             />
                             <span>Enter name</span>
                         </div>
-                        <div>
+                        <div className="input">
                             <input
                                 type="text"
+                                required={true}
                             />
                             <span>Enter subject</span>
                         </div>
                     </div>
 
-                    <div>
+                    <div className="input" >
                         <input
-                            type="email"
+                            type="text"
+                            required={true}
                         />
                         <span>Enter email</span>
                     </div>
 
-                    <div>
+                    <div className="area" >
                         <textarea
                             type="text"
+                            required={true}
                             rows={6}
                         />
                         <span>Enter message</span>
                     </div>
                     <button type="submit">Send message</button>
                 </form>
-                <div>
+                <div className="illustration" >
                     <img src={img} alt="" />
                 </div>
             </div>
