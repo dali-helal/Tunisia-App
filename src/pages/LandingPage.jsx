@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 import img from "../assets/imageLandingPage.png"
-import imgGoogle from "../assets/google.png"
+import platforms from "../assets/platforms.png"
 const LandingPage =()=>{
 
     return(
@@ -15,7 +15,7 @@ const LandingPage =()=>{
                       Try Desktop Version
                     </Link>
                     <h4>or</h4>
-                    <img src={imgGoogle} alt="" />
+                    <img src={platforms} alt="" />
                 </div>
          </div>
     )

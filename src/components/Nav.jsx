@@ -36,7 +36,7 @@ const Nav = () => {
                     <a href="#contact">Contact</a>
                 </ul>
             </div>
-            <Link>
+            <Link to="/auth" >
                 <button className="nav-btn">Sign in </button>
             </Link>
         </nav>
