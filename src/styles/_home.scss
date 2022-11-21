@@ -1,34 +1,97 @@
-#home{
-    min-height: calc(100vh - 134px);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-inline: 7rem;
-    :first-child{
-        h2 {  
-            font-weight: 700;
-            font-size: 3.5rem;
-            color: $primary;
-            span {
-                color: $secondery;
+#home {
+    padding-inline: 10vw;
+
+    .container {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        min-height: calc(100vh - 134px);
+
+        .text {
+            width: 50%;
+
+            h2 {
+                font-weight: 700;
+                font-size: 3.5rem;
+                color: $primary;
+
+                span {
+                    color: $secondery;
+                }
+            }
+
+            p {
+                font-weight: 600;
+                font-size: 1.5rem;
+                color: #555555;
+                margin: 1.2rem 0rem;
+                line-height: 2.5rem;
+            }
+
+            a {
+                background: $primary;
+                display: inline-block;
+                color: #FFFFFF;
+                padding: 1rem 1.5rem;
+                border-radius: 5px;
+                font-size: 1rem;
+                margin: 1.5rem 0rem;
+                border: none;
+                cursor: pointer;
+
+                transition: .5s;
+
+                &:hover {
+                    transform: scale(1.1);
+                }
             }
         }
-        p{
-            font-weight: 500;
-            font-size: 1.2rem;
-            color: #555555;
-            margin: 1.2rem 0rem;
-            line-height: 2rem;
-        }
-        button{
-            background: $primary;
-            color :#FFFFFF;
-            padding :0.75rem 2.75rem;
-            border-radius: 8px;
-            font-size: 1rem;
-            margin: 1.5rem 0rem;
-            border: none;
+
+        .illustration {
+            width: 50%;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            img {
+                width: 80%;
+            }
 
         }
     }
+}
+
+@media (max-width:640px){
+
+    #home{
+        .container{
+            min-height: calc(100vh - 100px);
+            flex-direction: column;
+
+            .text{
+                width:100%;
+                margin-bottom: 3rem;
+
+                h2{
+                    font-size: 2rem;
+                    margin-top: 2.5rem;
+                }
+
+                p{
+                    font-size: 1rem;
+                    margin-bottom: 0rem;
+                }
+
+                a{
+                    font-size: .75rem;
+                }
+            }
+
+            .illustration{
+                width:100%;
+                justify-content: center;
+            }
+        }
+    }
+
 }

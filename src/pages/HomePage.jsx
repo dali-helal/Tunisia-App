@@ -4,15 +4,16 @@ import Home from "../components/Home"
 import Services from "../components/Services"
 import img from "../assets/PageHome.png"
 import Contact from "../components/Contact"
-const HomePage=()=>{
-    return(
+
+const HomePage = () => {
+    return (
         <>
-        <Nav/>
-        <Home/>
-        <Services/>
-        <About/>
-        <img  src={img} alt="" style={{width : "100%"}}/>
-        <Contact/>
+            <Nav />
+            <Home />
+            <Services />
+            <About />
+            <img src={img} alt="" className="banner" style={{ width: "100%" }} />
+            <Contact />
         </>
     )
 

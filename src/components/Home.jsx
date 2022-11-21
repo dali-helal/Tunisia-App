@@ -1,20 +1,22 @@
 import homeImg from "../assets/homeImg.png"
 
-const Home=()=>{
+const Home = () => {
 
-    return(
+    return (
         <section id="home">
-                <div>
-                <h2>Tun<span>isia</span> Ap<span>p</span></h2>
-                <p>The app you were always <br/> waiting for ! </p>
-                 <a href="#">
-                 <button>Get Started</button>
-                </a> 
+            <div className="container">
+                <div className="text" >
+                    <h2>Tun<span>isia</span> Ap<span>p</span></h2>
+                    <p>The app you were always <br /> waiting for ! </p>
+                    <a href="#">
+                        Get Started
+                    </a>
                 </div>
-                <div>
+                <div className="illustration" >
                     <img src={homeImg} alt="" />
                 </div>
-            </section>
+            </div>
+        </section>
     )
 }
 export default Home

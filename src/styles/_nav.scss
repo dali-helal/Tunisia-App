@@ -1,17 +1,17 @@
-nav.animated{
-    padding: .5rem 7rem;
-    background:white;
-    box-shadow: 0px 2px 12px rgba(0,0,0 , 0.1);
+nav.animated {
+    padding: .5rem 10vw;
+    background: white;
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.1);
 
-    .logo-home{
-        img{
+    .logo-home {
+        img {
             transform: scale(.9);
         }
     }
 }
 
-nav{
-    padding: 2rem 7rem;
+nav {
+    padding: 2rem 10vw;
     position: sticky;
     top: 0px;
     z-index: 999;
@@ -21,45 +21,148 @@ nav{
     justify-content: space-between;
     transition: .5s;
 
-    .logo-home{
-        img{
+    .logo-home {
+        img {
             transition: .5s;
         }
     }
 
-    .list-nav-desktop{
-        ul{
-            a{  
-                position: relative;
-                margin: 0rem 0.75rem;
-                color: $primary;
-                font-weight: 700;
-                &::after{
-                    position: absolute;
-                    content: "";
-                    height: 4px;
-                    width: 100%;
-                    background: $primary;
-                    bottom:-8px;
-                    right: 0px;
-                    border-radius: 50px;
-                    transform: scale(0 , 1);
-                    transition: 0.6s;
-                }
-                &:hover::after{
-                    transform: scale(1, 1);
-                }
-            }
-            
-        }
+    .mobile-list{
+        display: none;
     }
-    .nav-btn{
-        padding:0.5rem 1.5rem ;
-        color: white; 
+
+    .bars{
+        display:none;
+    }
+
+    .desktop-list {
+        a {
+            position: relative;
+            margin: 0rem 0.75rem;
+            color: $primary;
+            font-weight: 700;
+
+            &::after {
+                position: absolute;
+                content: "";
+                height: 4px;
+                width: 100%;
+                background: $primary;
+                bottom: -8px;
+                right: 0px;
+                border-radius: 50px;
+                transform: scale(0, 1);
+                transition: 0.6s;
+            }
+
+            &:hover::after {
+                transform: scale(1, 1);
+            }
+        }
+
+    }
+
+    .nav-btn {
+        padding: 0.75rem 1.5rem;
+        color: white;
         background: $primary;
         border: none;
         border-radius: 5px;
         font-weight: 500;
         cursor: pointer;
+        transition: .5s;
+
+        &:hover {
+            transform: scale(1.1);
+        }
     }
+}
+
+.mobile-list.opened{
+    width:40%;
+}
+
+.bars.clicked{
+
+    .bar{
+        background:white;
+        position: absolute;
+        top:50%;
+
+        &:first-of-type{
+            transform: rotate(45deg);
+        }  
+
+        &:last-of-type{
+            transform: rotate(-45deg);
+        }
+
+        &:nth-child(2){
+            opacity: 0;
+        }
+    }
+}
+
+@media(max-width:640px){
+
+
+    nav{
+        padding: 1rem 8vw;
+
+        &>a{
+            
+            .logo-home{
+                transform: scale(.7);
+            }
+        }
+
+        .desktop-list{
+            display:none;
+        }
+
+        .mobile-list{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            background:$primary;
+            height:100vh;
+            width:0%;
+            top:0px;
+            right:0px;
+            gap:1rem;
+            overflow: hidden;
+            transition: .5s;
+
+            a{
+                color:white;
+            }
+        }
+        
+        .bars{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height:20px;
+            width:25px;
+            position: relative;
+            transition: .5s;
+
+            .bar{
+                width:100%;
+                height:4px;
+                border-radius: 50px;
+                background:$primary;
+                transition: .5s;
+            }
+
+        }
+
+        .nav-btn{
+            display:none;
+        }
+
+    }
+
 }

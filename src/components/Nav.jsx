@@ -1,43 +1,59 @@
 import logo from "../assets/logo.png"
+import flag from "../assets/flag.png"
 import { Link } from "react-router-dom"
 import { useEffect } from "react"
 
 const Nav = () => {
 
-    useEffect(()=>{
+    useEffect(() => {
 
-        const handleAnimation = ()=>{
-            if(window.scrollY > 0){
+        const handleAnimation = () => {
+            if (window.scrollY > 0) {
                 document.querySelector("nav").classList.add("animated");
-            }else{
+            } else {
                 document.querySelector("nav").classList.remove("animated");
             }
         }
 
-        document.addEventListener("scroll" , handleAnimation)
+        if(window.innerWidth > 768){
+            document.addEventListener("scroll", handleAnimation);
+        }
 
-        return ()=>{ document.removeEventListener("scroll" , handleAnimation) }
+        return () => { document.removeEventListener("scroll", handleAnimation) }
 
-    } , [])
+    }, [])
+
+    function clickHandler(){
+        document.querySelector(".mobile-list").classList.toggle("opened");
+        document.querySelector(".bars").classList.toggle("clicked");
+    }
 
     return (
         <nav className="nav-home">
             <Link to={"/"}>
                 <div className="logo-home">
-                    <img src={logo} alt="" />
+                    <img src={window.innerWidth > 768 ? logo : flag} alt="" />
                 </div>
             </Link>
-
-            <div className="list-nav-desktop">
-                <ul>
-                    <a href="#home">Home</a>
-                    <a href="#services">Services</a>
-                    <a href="#about">About</a>
-                    <a href="#contact">Contact</a>
-                </ul>
+            <ul className="desktop-list">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </ul>
+            <ul className="mobile-list">
+                <a href="#home">Home</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </ul>
+            <div className="bars" onClick={clickHandler} >
+                <div className="bar"></div>
+                <div className="bar"></div>
+                <div className="bar"></div>
             </div>
-            <Link>
-                <button className="nav-btn">Sign in </button>
+            <Link to="/auth" className="nav-btn" >
+                Sign in
             </Link>
         </nav>
     )
