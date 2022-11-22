@@ -8,7 +8,7 @@ const Home = () => {
                 <div className="text" >
                     <h2>Tun<span>isia</span> Ap<span>p</span></h2>
                     <p>The app you were always <br /> waiting for ! </p>
-                    <a href="#">
+                    <a href="#services">
                         Get Started
                     </a>
                 </div>
