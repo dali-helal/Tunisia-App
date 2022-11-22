@@ -9,14 +9,15 @@ import FileBase64 from 'react-file-base64';
 
 export default function () {
   const [signIn, setSignIn] = useState(true);
-  const [image , setImage] = useState();
+  const [image , setImage] = useState("");
   const nameRef = useRef();
   const phoneRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
-  
 
-  async function signUpHandler() {
+  async function signUpHandler(e) {
+    e.preventDefault();
+
     const response = await fetch("", {
       method: "POST",
       headers: {
@@ -33,7 +34,9 @@ export default function () {
     const data = await response.json();
   }
 
-  async function signInHandler() {
+  async function signInHandler(e) {
+    e.preventDefault();
+
     const response = await fetch("", {
       method: "POST",
       headers: {

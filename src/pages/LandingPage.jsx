@@ -1,12 +1,13 @@
 import { Link } from "react-router-dom"
 import img from "../assets/imageLandingPage.png"
+import mobile from "../assets/mobileLandingPage.png";
 import platforms from "../assets/platforms.png"
 const LandingPage =()=>{
 
     return(
          <div className="landing-page">
                 <div className="img-landing-page">
-                    <img  src={img} alt="" />
+                    <img src={window.innerWidth > 768 ? img : mobile } alt="" />
                 </div>
                 <div className="container">
                     <h2>Tun<span>isia</span> Ap<span>p</span></h2>

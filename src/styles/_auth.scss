@@ -1,159 +1,159 @@
-#auth{
+#auth {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  form{
+  form {
     display: flex;
     flex-direction: column;
-    width:400px;
-    padding:1.5rem;
-    background:white;
-    color:#777;
-    box-shadow: 0px 2px 12px rgba(0,0,0 , 0.1);
+    width: 400px;
+    padding: 1.5rem;
+    background: white;
+    color: #777;
+    box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.1);
 
-    .file{
+    .file {
       display: flex;
       align-items: center;
 
-      span{
+      span {
         font-size: .9rem;
-        width:40%;
+        width: 40%;
         font-weight: 500;
       }
     }
 
-    a{
+    a {
       text-align: end;
-      color:#777;
+      color: #777;
       font-size: .8rem;
       font-weight: 500;
     }
 
-    .input{
+    .input {
       position: relative;
       display: flex;
       margin-bottom: .75rem;
 
-      input{
-        width:100%;
-        padding:1rem;
-        outline:none;
+      input {
+        width: 100%;
+        padding: 1rem;
+        outline: none;
         border-radius: 5px;
-        border:1px solid #ddd;
+        border: 1px solid #ddd;
         transition: .5s;
 
-        &:focus + span,
-        &:valid + span{
-          transform: translate(5px , -25px);
-          padding-inline:5px;
-          background:white;
-          color:$primary;
-          font-size:.8rem;
-        } 
+        &:focus+span,
+        &:valid+span {
+          transform: translate(5px, -25px);
+          padding-inline: 5px;
+          background: white;
+          color: $primary;
+          font-size: .8rem;
+        }
 
-        &:focus{
+        &:focus {
           border-color: $primary;
         }
 
-        &:not(:focus) + span{
-          color:#777;
+        &:not(:focus)+span {
+          color: #777;
         }
       }
 
 
-      span{
+      span {
         position: absolute;
         pointer-events: none;
-        left:15px;
-        top:30%;
+        left: 15px;
+        top: 30%;
         transition: .5s;
 
       }
 
     }
 
-    button{
+    button {
       border-radius: 5px;
-      padding:.75rem 1rem;
-      border:none;
-      outline:none;
-      background:$primary;
-      color:white;
+      padding: .75rem 1rem;
+      border: none;
+      outline: none;
+      background: $primary;
+      color: white;
       cursor: pointer;
-      margin:.75rem 0px;
+      margin: .75rem 0px;
       transition: .5s;
 
-      &:hover{
+      &:hover {
         transform: scale(1.03);
       }
     }
 
-    h3{
+    h3 {
       font-weight: 500;
       text-align: center;
       font-size: 1rem;
       margin-bottom: .5rem;
 
-      span{
-        color:$primary;
+      span {
+        color: $primary;
         cursor: pointer;
       }
     }
 
-    .wrapper{
+    .wrapper {
       display: flex;
       justify-content: center;
       margin-bottom: 1rem;
 
-      h4{
+      h4 {
         font-weight: 500;
         text-align: center;
         font-size: .9rem;
         position: relative;
 
-        &::after{
-          content:"";
-          width:25px;
-          height:4px;
-          background:#777;
+        &::after {
+          content: "";
+          width: 25px;
+          height: 4px;
+          background: #777;
           position: absolute;
-          top:50%;
-          right:-35px;
+          top: 50%;
+          right: -35px;
           transform: translateY(-50%);
           border-radius: 50px;
         }
-  
-        &::before{
-          content:"";
-          width:25px;
-          height:4px;
-          background:#777;
+
+        &::before {
+          content: "";
+          width: 25px;
+          height: 4px;
+          background: #777;
           position: absolute;
-          top:50%;
-          left:-35px;
+          top: 50%;
+          left: -35px;
           transform: translateY(-50%);
           border-radius: 50px;
         }
       }
     }
 
-    .social{
+    .social {
       display: flex;
       justify-content: center;
-      gap:1rem;
+      gap: 1rem;
 
 
-      div{
-        height:40px;
-        width:40px;
-        background:#f4f4f4;
+      div {
+        height: 40px;
+        width: 40px;
+        background: #f4f4f4;
         display: flex;
         justify-content: center;
         align-items: center;
         border-radius: 5px;
-        box-shadow: 0px 2px 12px rgba(0,0,0 , 0.13);
+        box-shadow: 0px 2px 12px rgba(0, 0, 0, 0.13);
         cursor: pointer;
       }
     }
@@ -161,4 +161,27 @@
   }
 
 
+}
+
+@media(max-width:640px) {
+  #auth {
+    form {
+      width: 90%;
+
+      .file {
+
+        span {
+          font-size: .7rem;
+          width: 50%;
+          font-weight: 500;
+        }
+
+      }
+
+      h3 {
+        font-size: .9rem;
+      }
+
+    }
+  }
 }

@@ -77,3 +77,37 @@
 
     }
 }
+
+
+@media(max-width:640px){
+    .landing-page{
+        align-items: flex-end;
+        .img-landing-page {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+        }
+
+        .container{
+            padding-bottom: 3rem;
+
+            h2{
+                font-size: 2rem;
+            }
+
+            p{
+                font-size: 1rem;
+            }
+
+            a{
+                font-size: 1rem;
+            }
+
+            img{
+                width: 70%;
+            }
+
+            p{}
+        }
+    }
+}
