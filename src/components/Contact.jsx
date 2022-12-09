@@ -1,5 +1,14 @@
-
 import img from "../assets/contactImage.png"
+import { TextField } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+const theme = createTheme({
+    palette: {
+        primary: {
+            main: "#BF1020"
+        }
+    }
+})
 
 const Contact = () => {
     return (
@@ -10,39 +19,30 @@ const Contact = () => {
             </header>
             <div className="container">
                 <form>
-                    <div className="line-one" >
-                        <div className="input" >
-                            <input
-                                type="text"
-                                required={true}
+                    <ThemeProvider  theme={theme}>
+                        <div className="line-one" >
+                            <TextField
+                                label="Enter name"
+                                style={{background:"white"}}
+                                className="input"
                             />
-                            <span>Enter name</span>
-                        </div>
-                        <div className="input">
-                            <input
-                                type="text"
-                                required={true}
+                            <TextField
+                                label="Enter subject"
+                                style={{background:"white"}}
+                                className="input"
                             />
-                            <span>Enter subject</span>
                         </div>
-                    </div>
-
-                    <div className="input" >
-                        <input
-                            type="text"
-                            required={true}
+                        <TextField
+                            label="Enter email"
+                            style={{background:"white"}}
                         />
-                        <span>Enter email</span>
-                    </div>
-
-                    <div className="area" >
-                        <textarea
-                            type="text"
-                            required={true}
+                        <TextField
+                            label="Enter message"
+                            style={{background:"white"}}
+                            multiline
                             rows={6}
                         />
-                        <span>Enter message</span>
-                    </div>
+                    </ThemeProvider>
                     <button type="submit">Send message</button>
                 </form>
                 <div className="illustration" >
