@@ -6,10 +6,20 @@ import google from "../assets/google.png";
 import facebook from "../assets/facebook.png";
 import twitter from "../assets/twitter.png";
 import FileBase64 from 'react-file-base64';
+import { TextField } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#BF1020"
+    }
+  }
+})
 
 export default function () {
-  const [signIn, setSignIn] = useState(true);
-  const [image , setImage] = useState("");
+  const [signIn, setSignIn] = useState(false);
+  const [image, setImage] = useState("");
   const nameRef = useRef();
   const phoneRef = useRef();
   const emailRef = useRef();
@@ -52,7 +62,7 @@ export default function () {
 
 
 
-  function toggleForm(){
+  function toggleForm() {
     setSignIn(!signIn);
   }
 
@@ -60,48 +70,37 @@ export default function () {
     <>
       <section id="auth">
         <form onSubmit={signIn ? signInHandler : signUpHandler}>
+          <ThemeProvider theme={theme}>
+            {
+              !signIn && <>
 
-          {
-            !signIn && <>
-
-              <div className="input">
-                <input
-                  type="text"
-                  required={true}
+                <TextField
+                  label="Enter name..."
                   ref={nameRef}
+                  style={{marginBottom:".75rem"}}
                 />
-                <span>Enter name</span>
-              </div>
-
-              <div className="input">
-                <input
-                  type="text"
-                  required={true}
+                <TextField
+                  label="Enter phone..."
                   ref={phoneRef}
+                  style={{marginBottom:".75rem"}}
                 />
-                <span>Enter phone</span>
-              </div>
 
-            </>
-          }
+              </>
+            }
 
-          <div className="input">
-            <input
-              type="text"
-              required={true}
+            <TextField
+              label="Enter email..."
+              type="email"
               ref={emailRef}
+              style={{marginBottom:".75rem"}}
             />
-            <span>Enter email</span>
-          </div>
-
-          <div className="input">
-            <input
+            <TextField
+              label="Enter password..."
               type="password"
-              required={true}
               ref={passwordRef}
+              style={{marginBottom:".75rem"}}
             />
-            <span>Enter password</span>
-          </div>
+          </ThemeProvider>
 
           {
             signIn && <Link to={"/"} >
@@ -112,9 +111,9 @@ export default function () {
           {
             !signIn && <div className="file">
               <span>Profile Picture : </span>
-              <FileBase64 
+              <FileBase64
                 multiple={false}
-                onDone={({base64}) => setImage(base64) }
+                onDone={({ base64 }) => setImage(base64)}
               />
             </div>
           }
@@ -142,7 +141,7 @@ export default function () {
                 </div>
               </div>
             </> : <h3 onClick={toggleForm}>
-                Already have an account ? <span>Sign in !</span>
+              Already have an account ? <span>Sign in !</span>
             </h3>
           }
         </form>

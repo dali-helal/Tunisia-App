@@ -31,49 +31,6 @@
       font-weight: 500;
     }
 
-    .input {
-      position: relative;
-      display: flex;
-      margin-bottom: .75rem;
-
-      input {
-        width: 100%;
-        padding: 1rem;
-        outline: none;
-        border-radius: 5px;
-        border: 1px solid #ddd;
-        transition: .5s;
-
-        &:focus+span,
-        &:valid+span {
-          transform: translate(5px, -25px);
-          padding-inline: 5px;
-          background: white;
-          color: $primary;
-          font-size: .8rem;
-        }
-
-        &:focus {
-          border-color: $primary;
-        }
-
-        &:not(:focus)+span {
-          color: #777;
-        }
-      }
-
-
-      span {
-        position: absolute;
-        pointer-events: none;
-        left: 15px;
-        top: 30%;
-        transition: .5s;
-
-      }
-
-    }
-
     button {
       border-radius: 5px;
       padding: .75rem 1rem;
