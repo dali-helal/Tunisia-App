@@ -18,7 +18,7 @@ const theme = createTheme({
 })
 
 export default function () {
-  const [signIn, setSignIn] = useState(false);
+  const [signIn, setSignIn] = useState(true);
   const [image, setImage] = useState("");
   const nameRef = useRef();
   const phoneRef = useRef();
@@ -59,8 +59,6 @@ export default function () {
     })
     const data = await response.json();
   }
-
-
 
   function toggleForm() {
     setSignIn(!signIn);
