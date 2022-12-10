@@ -1,22 +1,26 @@
 import imgRent from "../assets/imgrent.png"
 import exemple from "../assets/exemple.png"
 import { FaSearch, FaPlusCircle, FaStar, FaLocationArrow } from 'react-icons/fa';
-import { Pagination, TextField } from "@mui/material";
+import { TextField } from "@mui/material";
 import FileBase64 from 'react-file-base64';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState } from "react";
-const Rent = () => {
-    const theme = createTheme({
-        palette: {
-            primary: {
-                main: "#BF1020"
-            }
+import Pagination from "../pages/Pagination";
+
+const theme = createTheme({
+    palette: {
+        primary: {
+            main: "#BF1020"
         }
-    })
-    const [page, setPage] = useState(1);
-    const [pages, setPages] = useState(1)
+    }
+})
+
+const Rent = () => {
+    const [page , setPage] = useState(1);
+    const [pages , setPages] = useState(4);
+
     return (
-        <section className="rent">
+        <section id="rent-page">
             <div className="header">
 
                 <div className="container_img">
@@ -187,13 +191,16 @@ const Rent = () => {
 
                         </ThemeProvider>
 
-
                     </form>
                 </div>
 
             </div>
             <div className="pagination">
-                <Pagination page={page} setPage={setPage} pages={pages} />
+                <Pagination
+                    page={page}
+                    setPage={setPage}
+                    pages={pages}
+                />
             </div>
 
         </section>
