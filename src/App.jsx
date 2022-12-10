@@ -7,6 +7,7 @@ import Work from "./pages/Work"
 import Health from "./pages/Health"
 import Rent from "./pages/Rent"
 import RentDetails from "./pages/RentDetails"
+import Settings from "./pages/Settings"
 const App = () => {
   return (
     <BrowserRouter>
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/services/health" element={<Health/>} /> 
         <Route path="/services/rent" element={<Rent/>} /> 
         <Route path="/services/rent/rentDetails" element={<RentDetails/>} /> 
+        <Route path="/settings" element={<Settings/>} /> 
       </Routes>
     </BrowserRouter>
   )
