@@ -6,7 +6,7 @@ import Transport from "./pages/Transport"
 import Work from "./pages/Work"
 import Health from "./pages/Health"
 import Rent from "./pages/Rent"
-
+import RentDetails from "./pages/RentDetails"
 const App = () => {
   return (
     <BrowserRouter>
@@ -18,6 +18,7 @@ const App = () => {
         <Route path="/services/transport" element={<Transport/>} /> 
         <Route path="/services/health" element={<Health/>} /> 
         <Route path="/services/rent" element={<Rent/>} /> 
+        <Route path="/services/rent/rentDetails" element={<RentDetails/>} /> 
       </Routes>
     </BrowserRouter>
   )
