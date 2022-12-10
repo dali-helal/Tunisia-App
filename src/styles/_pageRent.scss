@@ -1,0 +1,167 @@
+.rent{
+    scroll-padding-top: 100px;
+    .header{
+        position: relative;
+        display: flex;
+        background-color:red;
+        width: 100%;
+        height: 70vh;
+        padding: 1rem;
+        z-index: 999999;
+        align-items: center;
+        justify-content: center;
+        .container_img{
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 100%;
+            img{
+               width: 100%;
+            }
+        }
+        .container{
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap : 1rem;
+            h2{
+                font-size: 4rem;
+                font-weight: 700;
+                color: white;
+            }
+            h4{
+                font-size: 2rem;
+                font-weight: 400;
+                color: white;
+            }
+            .container-search{
+                display: flex;
+                justify-content: center;
+                width: 90%;
+                gap: 1rem;
+                margin-top: 2rem;
+                input{
+                    width: 80%;
+                    padding: 0.75rem;
+                    border-radius: 8px ;
+                    outline: none;
+                    border: none;
+                    color: $secondery;
+                    padding-left: 2rem ;
+                    font-size: 1rem;
+
+                }
+                button{
+                    display: flex;
+                    align-items: center;
+                    gap :0.5rem;
+                    padding:  1.25rem 1.75rem;
+                    background-color: $primary;
+                    color: white;
+                    border-radius: 8px ;
+                    border: none;
+                    cursor: pointer;
+                    h6{
+                        font-size: 1rem;
+                        font-weight: 300;
+                    }
+                }
+            }
+        }
+      
+    }
+    .container-main{
+        width: 100%;
+        padding: 2vw 10vw;
+        margin-top: 8rem;
+        display: flex;
+        align-items: flex-start;
+        gap : 1rem ; 
+        .container-grid{
+           width: 80%;
+            display: grid;
+            grid-template-columns:  repeat(3,1fr);
+            gap:1rem;
+            .item{
+                 background: white;
+                 box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
+                 border-radius: 5px;
+                 display: flex;
+                 flex-direction: column;
+                 justify-content: space-between;
+                 padding:0.75rem;
+                 gap: 0.75rem;
+                 cursor: pointer;
+                 h2{
+                    color: $secondery;
+                    font-size: 1.2rem;
+                    font-weight: 500;
+                 }
+                 h5{
+                    color: $secondery;
+                    font-size: 1rem;
+                    font-weight: 500;
+                    
+                 }
+                 .stars{
+                    display: flex;
+                    align-items: center;
+                    .star{
+                        color: #ff9901;
+                    }
+                    p{
+                        margin-left: 0.5rem;
+                        font-size: 1.2rem;
+                        font-weight: 600;
+                        color: $secondery;
+                    }
+                 }
+                 button{
+                    cursor: pointer;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    padding: 0.75rem;
+                    border-radius: 8px;
+                    background: $primary;
+                    color: white;
+                    border: none;
+                    gap :1rem;
+                    p{
+                        font-size: 1.2rem;
+                    }
+                 }
+            }
+        }
+        .container-form{
+            width: 30%;
+            background: white;
+            box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
+            border-radius: 5px;
+            padding: 1.5rem 1.5rem;
+            
+            form{
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                gap: 1rem;
+                button{
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    padding: 0.75rem;
+                    background: $primary;
+                    color: white;
+                    border: none;
+                    border-radius: 5px;
+                    gap : 0.5rem;
+                    p{
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+        }
+    }
+}
