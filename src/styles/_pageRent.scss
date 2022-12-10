@@ -33,7 +33,6 @@
     .header{
         position: relative;
         display: flex;
-        background-color:red;
         width: 100%;
         height: 70vh;
         padding: 1rem;
@@ -195,4 +194,41 @@
             }
         }
     }
+}
+
+@media(max-width:640px){
+
+    #rent-page{
+
+        .header{
+            display: none;
+        }
+
+        .pagination{
+            justify-content: center;
+        }
+
+        .container-main{
+            flex-direction: column-reverse;
+            padding:1rem 5vw;
+            margin-top: 1rem;
+
+            .container-form{
+                width: 100%;
+            }
+
+            .container-grid{
+                width: 100%;
+                grid-template-columns: repeat(1 , 1fr);
+
+                a{
+                    width: 100%;
+                }
+            }
+
+        }
+
+
+    }
+
 }

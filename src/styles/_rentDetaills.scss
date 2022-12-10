@@ -175,3 +175,37 @@
     }
 
 }
+
+@media(max-width:640px){
+    #rent{
+        padding:1rem 5vw;
+
+        .heading-container{
+            flex-direction: column;
+
+            .left{
+                width:100%;
+            }
+
+            .right{
+                width: 100%;
+
+                h1{
+                    font-size: 2rem;
+                }
+
+                p{
+                    font-size: .85rem;
+                }
+            }
+        }
+
+        .form{
+            input{
+                width: 70%;;
+            }
+        }
+
+
+    }
+}

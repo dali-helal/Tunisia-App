@@ -6,6 +6,7 @@ import FileBase64 from 'react-file-base64';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState } from "react";
 import Pagination from "../pages/Pagination";
+import { Link } from "react-router-dom";
 
 const theme = createTheme({
     palette: {
