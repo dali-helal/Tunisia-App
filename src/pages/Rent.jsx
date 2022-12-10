@@ -17,8 +17,8 @@ const theme = createTheme({
 })
 
 const Rent = () => {
-    const [page , setPage] = useState(1);
-    const [pages , setPages] = useState(4);
+    const [page, setPage] = useState(1);
+    const [pages, setPages] = useState(4);
 
     return (
         <section id="rent-page">
@@ -44,7 +44,7 @@ const Rent = () => {
             </div>
             <div className="container-main">
                 <div className="container-grid">
-                    <Link to="/services/rent/rentDetails">
+
                     <div className="item">
                         <img src={exemple} alt="" />
                         <h2>Maison monastir</h2>
@@ -59,13 +59,13 @@ const Rent = () => {
                             <FaStar className="star" size={"25px"} />
                             <p>(4.7)</p>
                         </div>
-                        <button>
-                            <FaLocationArrow size={"25px"} />
+                        <Link to={"/services/rent/rentDetails"}>
+                            <FaLocationArrow size={"18px"} />
                             <p>Read more </p>
-                        </button>
+                        </Link>
                     </div>
-                    </Link>
-                    
+
+
                     <div className="item">
                         <img src={exemple} alt="" />
                         <h2>Maison monastir</h2>
@@ -80,29 +80,10 @@ const Rent = () => {
                             <FaStar className="star" size={"25px"} />
                             <p>(4.7)</p>
                         </div>
-                        <button>
-                            <FaLocationArrow size={"25px"} />
+                        <Link to={"/services/rent/rentDetails"}>
+                            <FaLocationArrow size={"18px"} />
                             <p>Read more </p>
-                        </button>
-                    </div>
-                    <div className="item">
-                        <img src={exemple} alt="" />
-                        <h2>Maison monastir</h2>
-                        <h5>Lorem ipsum dolor sit amet elit.
-                            consectetur adipisicing elit.
-                        </h5>
-                        <div className="stars">
-                            <FaStar className="star" size={"25px"} />
-                            <FaStar className="star" size={"25px"} />
-                            <FaStar className="star" size={"25px"} />
-                            <FaStar className="star" size={"25px"} />
-                            <FaStar className="star" size={"25px"} />
-                            <p>(4.7)</p>
-                        </div>
-                        <button>
-                            <FaLocationArrow size={"25px"} />
-                            <p>Read more </p>
-                        </button>
+                        </Link>
                     </div>
                     <div className="item">
                         <img src={exemple} alt="" />
@@ -118,10 +99,10 @@ const Rent = () => {
                             <FaStar className="star" size={"25px"} />
                             <p>(4.7)</p>
                         </div>
-                        <button>
-                            <FaLocationArrow size={"25px"} />
+                        <Link to={"/services/rent/rentDetails"}>
+                            <FaLocationArrow size={"18px"} />
                             <p>Read more </p>
-                        </button>
+                        </Link>
                     </div>
                     <div className="item">
                         <img src={exemple} alt="" />
@@ -137,10 +118,10 @@ const Rent = () => {
                             <FaStar className="star" size={"25px"} />
                             <p>(4.7)</p>
                         </div>
-                        <button>
-                            <FaLocationArrow size={"25px"} />
+                        <Link to={"/services/rent/rentDetails"}>
+                            <FaLocationArrow size={"18px"} />
                             <p>Read more </p>
-                        </button>
+                        </Link>
                     </div>
                     <div className="item">
                         <img src={exemple} alt="" />
@@ -156,17 +137,36 @@ const Rent = () => {
                             <FaStar className="star" size={"25px"} />
                             <p>(4.7)</p>
                         </div>
-                        <button>
-                            <FaLocationArrow size={"25px"} />
+                        <Link to={"/services/rent/rentDetails"}>
+                            <FaLocationArrow size={"18px"} />
                             <p>Read more </p>
-                        </button>
+                        </Link>
+                    </div>
+                    <div className="item">
+                        <img src={exemple} alt="" />
+                        <h2>Maison monastir</h2>
+                        <h5>Lorem ipsum dolor sit amet elit.
+                            consectetur adipisicing elit.
+                        </h5>
+                        <div className="stars">
+                            <FaStar className="star" size={"25px"} />
+                            <FaStar className="star" size={"25px"} />
+                            <FaStar className="star" size={"25px"} />
+                            <FaStar className="star" size={"25px"} />
+                            <FaStar className="star" size={"25px"} />
+                            <p>(4.7)</p>
+                        </div>
+                        <Link to={"/services/rent/rentDetails"}>
+                            <FaLocationArrow size={"18px"} />
+                            <p>Read more </p>
+                        </Link>
                     </div>
 
 
 
                 </div>
                 <div className="container-form">
-                    <form>
+                    <form autoComplete="off" >
                         <ThemeProvider theme={theme}>
                             <TextField
                                 label="Enter name"
@@ -189,7 +189,7 @@ const Rent = () => {
                             />
 
                             <button>
-                                <FaPlusCircle size={"20px"} />
+                                <FaPlusCircle size={"18px"} />
                                 <p>Post house for rent </p>
                             </button>
 
