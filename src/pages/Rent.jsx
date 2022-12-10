@@ -43,6 +43,7 @@ const Rent = () => {
             </div>
             <div className="container-main">
                 <div className="container-grid">
+                    <Link to="/services/rent/rentDetails">
                     <div className="item">
                         <img src={exemple} alt="" />
                         <h2>Maison monastir</h2>
@@ -62,6 +63,8 @@ const Rent = () => {
                             <p>Read more </p>
                         </button>
                     </div>
+                    </Link>
+                    
                     <div className="item">
                         <img src={exemple} alt="" />
                         <h2>Maison monastir</h2>
