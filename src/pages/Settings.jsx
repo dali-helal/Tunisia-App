@@ -2,7 +2,7 @@ import { FaUserCircle, FaUserAlt, FaInfoCircle,FaTools ,FaTrashAlt} from "react-
 import { AiFillSetting } from "react-icons/ai"
 import { FiLogOut } from "react-icons/fi"
 
-import imgsettings from "../assets/imgsettings.png"
+import imgsettings from "../assets/imgSettings.png"
 import { TextField } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 const Settings = () => {
