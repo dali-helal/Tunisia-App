@@ -6,6 +6,7 @@ import Transport from "./pages/Transport"
 import Work from "./pages/Work"
 import Health from "./pages/Health"
 import Rent from "./pages/Rent"
+
 const App = () => {
   return (
     <BrowserRouter>
