@@ -7,19 +7,26 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useState } from "react";
 import Pagination from "../pages/Pagination";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
-const theme = createTheme({
-    palette: {
-        primary: {
-            main: "#BF1020"
-        }
-    }
-})
 
 const Rent = () => {
     const [page, setPage] = useState(1);
     const [pages, setPages] = useState(4);
 
+    const theme = createTheme({
+        palette: {
+            primary: {
+                main: "#BF1020"
+            }
+        }
+    })
+    useEffect(()=>{  
+        window.scrollTo({
+            top:0
+        })
+       
+    },[])
     return (
         <section id="rent-page">
             <div className="header">
