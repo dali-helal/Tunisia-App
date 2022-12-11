@@ -1,9 +1,10 @@
 import logo from "../assets/logo.png"
 import flag from "../assets/flag.png"
 import { Link } from "react-router-dom"
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 
 const Nav = () => {
+    const [profile, setProfile] = useState(null);
 
     useEffect(() => {
 
@@ -15,7 +16,7 @@ const Nav = () => {
             }
         }
 
-        if(window.innerWidth > 768){
+        if (window.innerWidth > 768) {
             document.addEventListener("scroll", handleAnimation);
         }
 
@@ -23,7 +24,20 @@ const Nav = () => {
 
     }, [])
 
-    function clickHandler(){
+    useEffect(() => {
+
+        const user = sessionStorage.getItem("profile");
+
+        if (user) {
+            const token = JSON.parse(sessionStorage.getItem("profile")).token;
+            setProfile(token);
+
+            console.log(token);
+        }
+
+    }, [])
+
+    function clickHandler() {
         document.querySelector(".mobile-list").classList.toggle("opened");
         document.querySelector(".bars").classList.toggle("clicked");
     }
