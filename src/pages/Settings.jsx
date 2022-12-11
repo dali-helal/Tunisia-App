@@ -1,10 +1,10 @@
 import { FaUserCircle, FaUserAlt, FaInfoCircle,FaTools ,FaTrashAlt} from "react-icons/fa"
 import { AiFillSetting } from "react-icons/ai"
 import { FiLogOut } from "react-icons/fi"
-
 import imgsettings from "../assets/imgSettings.png"
 import { TextField } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+
 const Settings = () => {
     const theme = createTheme({
         palette: {
@@ -85,10 +85,6 @@ const Settings = () => {
                                 label="Enter password"
                                 style={{background :"white"}}
                             />
-                            <TextField
-                                label="Enter phone number"
-                                style={{background :"white"}}
-                            />
                             <div className="conatiner-btn">
                                 <button id="first-btn">
                                  <FaTools size={"20px"} color={"white"} />
@@ -100,8 +96,6 @@ const Settings = () => {
                                 </button>
                             </div>
                         </ThemeProvider>
-
-
                     </form>
                 </div>
                 <div className="container-img">

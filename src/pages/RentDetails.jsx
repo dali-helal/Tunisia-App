@@ -1,18 +1,37 @@
 import React from "react";
 import house from "../assets/house.png";
 import { FaStar , FaUserCircle , FaLocationArrow } from "react-icons/fa";
+import { useParams } from "react-router-dom";
+import { useEffect , useState } from "react";
 
 export default function(){
+    const { id } = useParams();
+    const [house , setHouse] = useState({});
+
+    useEffect(()=>{
+
+        console.log(id);
+
+        async function fetchData(){
+            const response = await fetch(`http://localhost:5000/rent/getHouseById?id=${id}`);
+            const data = await response.json();
+
+            setHouse(data);
+        }
+        fetchData();
+
+    } , []);
+
     return(
         <>
            <section id="rent">
                 <div className="heading-container">
                     <div className="left">
-                        <img src={house} />
+                        <img src={house.picture} />
                     </div>
                     <div className="right">
-                        <h1>Maison monastir</h1>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente harum illum, beatae doloribus quod soluta explicabo error asperiores autem assumenda fugiat quo voluptates ab mollitia necessitatibus id architecto consequatur. Tenetur?</p>
+                        <h1>{house.name}</h1>
+                        <p> {house.description} </p>
                         <div className="stars-wrapper">
                             <div className="stars">
                                 <FaStar color="#ff9901" className="star"/>
@@ -25,10 +44,10 @@ export default function(){
                         </div>
                         <div className="contact-wrapper">
                             <span id="phone">
-                                +216 24 684 936
+                                +216 {house.phone}
                             </span>
                             <span id="price">
-                                480 DT
+                                {house.price}
                             </span>
                         </div>
                     </div>

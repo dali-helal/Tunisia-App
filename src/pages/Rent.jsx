@@ -1,12 +1,11 @@
 import imgRent from "../assets/imgrent.png"
-import exemple from "../assets/exemple.png"
-import { FaSearch, FaPlusCircle, FaStar, FaLocationArrow } from 'react-icons/fa';
+import { FaSearch, FaPlusCircle } from 'react-icons/fa';
 import { TextField } from "@mui/material";
 import FileBase64 from 'react-file-base64';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Pagination from "../pages/Pagination";
-import { Link } from "react-router-dom";
+import House from "../components/House.jsx";
 
 const theme = createTheme({
     palette: {
@@ -18,7 +17,58 @@ const theme = createTheme({
 
 const Rent = () => {
     const [page, setPage] = useState(1);
-    const [pages, setPages] = useState(4);
+    const [pages, setPages] = useState(1);
+    const [houses , setHouses] = useState([]);
+    const [name , setName] = useState("");
+    const [description , setDescription] = useState("");
+    const [price , setPrice] = useState("");
+    const [location , setLocation] = useState("");
+    const [phone , setPhone] = useState("");
+    const [picture , setPicture] = useState("");
+
+    useEffect(()=>{
+        async function fetchData(){
+            const response = await fetch(`http://localhost:5000/rent/getAllHouses?page=${page}`);
+            const data = await response.json();
+
+            setHouses(data.houses);
+            setPages(data.numberOfPages)
+        }
+        fetchData();
+    } , [page])
+
+    async function submitHandler(e){
+        e.preventDefault();
+
+        const response = await fetch("http://localhost:5000/rent/insertHouse" , {
+            method:"POST",
+            headers:{
+                "content-type":"application/json"
+            },
+            body:JSON.stringify({
+                name,
+                description,
+                price,
+                location,
+                phone,
+                picture
+            })
+        })
+        const data = await response.json();
+
+        if(data.msg == "house inserted successfully"){
+            setHouses([...houses , {
+                name,
+                description,
+                price,
+                location,
+                phone,
+                picture
+            }]);
+        }
+
+
+    }
 
     return (
         <section id="rent-page">
@@ -44,148 +94,51 @@ const Rent = () => {
             </div>
             <div className="container-main">
                 <div className="container-grid">
-
-                    <div className="item">
-                        <img src={exemple} alt="" />
-                        <h2>Maison monastir</h2>
-                        <h5>Lorem ipsum dolor sit amet elit.
-                            consectetur adipisicing elit.
-                        </h5>
-                        <div className="stars">
-                            <FaStar className="star" size={"25px"} />
-                            <FaStar className="star" size={"25px"} />
-                            <FaStar className="star" size={"25px"} />
-                            <FaStar className="star" size={"25px"} />
-                            <FaStar className="star" size={"25px"} />
-                            <p>(4.7)</p>
-                        </div>
-                        <Link to={"/services/rent/rentDetails"}>
-                            <FaLocationArrow size={"18px"} />
-                            <p>Read more </p>
-                        </Link>
-                    </div>
-
-
-                    <div className="item">
-                        <img src={exemple} alt="" />
-                        <h2>Maison monastir</h2>
-                        <h5>Lorem ipsum dolor sit amet elit.
-                            consectetur adipisicing elit.
-                        </h5>
-                        <div className="stars">
-                            <FaStar className="star" size={"25px"} />
-                            <FaStar className="star" size={"25px"} />
-                            <FaStar className="star" size={"25px"} />
-                            <FaStar className="star" size={"25px"} />
-                            <FaStar className="star" size={"25px"} />
-                            <p>(4.7)</p>
-                        </div>
-                        <Link to={"/services/rent/rentDetails"}>
-                            <FaLocationArrow size={"18px"} />
-                            <p>Read more </p>
-                        </Link>
-                    </div>
-                    <div className="item">
-                        <img src={exemple} alt="" />
-                        <h2>Maison monastir</h2>
-                        <h5>Lorem ipsum dolor sit amet elit.
-                            consectetur adipisicing elit.
-                        </h5>
-                        <div className="stars">
-                            <FaStar className="star" size={"25px"} />
-                            <FaStar className="star" size={"25px"} />
-                            <FaStar className="star" size={"25px"} />
-                            <FaStar className="star" size={"25px"} />
-                            <FaStar className="star" size={"25px"} />
-                            <p>(4.7)</p>
-                        </div>
-                        <Link to={"/services/rent/rentDetails"}>
-                            <FaLocationArrow size={"18px"} />
-                            <p>Read more </p>
-                        </Link>
-                    </div>
-                    <div className="item">
-                        <img src={exemple} alt="" />
-                        <h2>Maison monastir</h2>
-                        <h5>Lorem ipsum dolor sit amet elit.
-                            consectetur adipisicing elit.
-                        </h5>
-                        <div className="stars">
-                            <FaStar className="star" size={"25px"} />
-                            <FaStar className="star" size={"25px"} />
-                            <FaStar className="star" size={"25px"} />
-                            <FaStar className="star" size={"25px"} />
-                            <FaStar className="star" size={"25px"} />
-                            <p>(4.7)</p>
-                        </div>
-                        <Link to={"/services/rent/rentDetails"}>
-                            <FaLocationArrow size={"18px"} />
-                            <p>Read more </p>
-                        </Link>
-                    </div>
-                    <div className="item">
-                        <img src={exemple} alt="" />
-                        <h2>Maison monastir</h2>
-                        <h5>Lorem ipsum dolor sit amet elit.
-                            consectetur adipisicing elit.
-                        </h5>
-                        <div className="stars">
-                            <FaStar className="star" size={"25px"} />
-                            <FaStar className="star" size={"25px"} />
-                            <FaStar className="star" size={"25px"} />
-                            <FaStar className="star" size={"25px"} />
-                            <FaStar className="star" size={"25px"} />
-                            <p>(4.7)</p>
-                        </div>
-                        <Link to={"/services/rent/rentDetails"}>
-                            <FaLocationArrow size={"18px"} />
-                            <p>Read more </p>
-                        </Link>
-                    </div>
-                    <div className="item">
-                        <img src={exemple} alt="" />
-                        <h2>Maison monastir</h2>
-                        <h5>Lorem ipsum dolor sit amet elit.
-                            consectetur adipisicing elit.
-                        </h5>
-                        <div className="stars">
-                            <FaStar className="star" size={"25px"} />
-                            <FaStar className="star" size={"25px"} />
-                            <FaStar className="star" size={"25px"} />
-                            <FaStar className="star" size={"25px"} />
-                            <FaStar className="star" size={"25px"} />
-                            <p>(4.7)</p>
-                        </div>
-                        <Link to={"/services/rent/rentDetails"}>
-                            <FaLocationArrow size={"18px"} />
-                            <p>Read more </p>
-                        </Link>
-                    </div>
-
-
-
+                    {
+                        houses.map((item,index ,arr)=>{
+                            return(
+                                <House 
+                                    key={item._id}
+                                    id={item._id}
+                                    name={item.name}
+                                    description={item.description}
+                                    picture={item.picture}
+                                />
+                            )
+                        })
+                    }
                 </div>
                 <div className="container-form">
-                    <form autoComplete="off" >
+                    <form autoComplete="off" onSubmit={submitHandler} >
                         <ThemeProvider theme={theme}>
                             <TextField
                                 label="Enter name"
+                                value={name}
+                                onChange={(e)=>{ setName(e.target.value) }}
                             />
                             <TextField
                                 label="Enter description"
+                                value={description}
+                                onChange={(e)=>{setDescription(e.target.value)}}
                             />
                             <TextField
                                 label="Enter price "
+                                value={price}
+                                onChange={(e)=>{ setPrice(e.target.value) }}
                             />
                             <TextField
                                 label="Enter location"
+                                value={location}
+                                onChange={(e)=>{ setLocation(e.target.value) }}
                             />
                             <TextField
                                 label="Enter phone number"
+                                value={phone}
+                                onChange={(e)=>{ setPhone(e.target.value) }}
                             />
                             <FileBase64
                                 multiple={false}
-                                onDone={({ base64 }) => setImage(base64)}
+                                onDone={({ base64 }) => setPicture(base64)}
                             />
 
                             <button>

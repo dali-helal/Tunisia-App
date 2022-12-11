@@ -136,6 +136,11 @@
                 gap: 0.75rem;
                 cursor: pointer;
 
+                img{
+                    width:100%;
+                    height:150px;
+                }
+
                 h2 {
                     color: $secondery;
                     font-size: 1.2rem;
@@ -146,7 +151,7 @@
                     color: $secondery;
                     font-size: 1rem;
                     font-weight: 500;
-                    line-height: 1.5rem;
+                    line-height: 1.8rem;
                 }
 
                 .stars {
