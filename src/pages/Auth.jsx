@@ -35,6 +35,7 @@ export default function () {
     setError1(false);
     setError2(false);
     setError3(false);
+    setSuccess(false);
   }
 
   async function signUpHandler(e) {

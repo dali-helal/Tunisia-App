@@ -2,6 +2,7 @@ import logo from "../assets/logo.png"
 import flag from "../assets/flag.png"
 import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
+import decode from "jwt-decode";
 
 const Nav = () => {
     const [profile, setProfile] = useState(null);
@@ -30,9 +31,7 @@ const Nav = () => {
 
         if (user) {
             const token = JSON.parse(sessionStorage.getItem("profile")).token;
-            setProfile(token);
-
-            console.log(token);
+            setProfile(JSON.parse(JSON.stringify(decode(token))));
         }
 
     }, [])
@@ -66,9 +65,11 @@ const Nav = () => {
                 <div className="bar"></div>
                 <div className="bar"></div>
             </div>
-            <Link to="/auth" className="nav-btn" >
+            {
+                profile ? <img src={profile.picture} style={{width:"50px" , height:"50px"}} /> : <Link to="/auth" className="nav-btn" >
                 Sign in
             </Link>
+            }
         </nav>
     )
 }
