@@ -3,9 +3,13 @@ import flag from "../assets/flag.png"
 import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
 import decode from "jwt-decode";
+import avatar from "../assets/avatar.png";
+import { FaCog, FaSignOutAlt } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const Nav = () => {
     const [profile, setProfile] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
 
@@ -41,6 +45,10 @@ const Nav = () => {
         document.querySelector(".bars").classList.toggle("clicked");
     }
 
+    function toggler(){
+        document.querySelector(".settings").classList.toggle("visible");
+    }
+
     return (
         <nav className="nav-home">
             <Link to={"/"}>
@@ -66,9 +74,21 @@ const Nav = () => {
                 <div className="bar"></div>
             </div>
             {
-                profile ? <img src={profile.picture} style={{width:"50px" , height:"50px"}} /> : <Link to="/auth" className="nav-btn" >
-                Sign in
-            </Link>
+                profile ? <div className="avatar-wrapper">
+                    <img src={profile.picture == "" ? avatar : profile.picture} onClick={toggler} className="avatar" />
+                    <div className="settings">
+                        <div onClick={()=>{navigate("/settings")}}>
+                            <FaCog color="#555"/>
+                            <h3>Settings</h3>
+                        </div>
+                        <div onClick={()=>{ setProfile(null); sessionStorage.clear(); navigate("/");   }}>
+                            <FaSignOutAlt color="#555"/>
+                            <h3>Sign out</h3>
+                        </div>
+                    </div>
+                </div> : <Link to="/auth" className="nav-btn" >
+                    Sign in
+                </Link>
             }
         </nav>
     )
