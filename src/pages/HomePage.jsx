@@ -4,8 +4,15 @@ import Home from "../components/Home"
 import Services from "../components/Services"
 import img from "../assets/PageHome.png"
 import Contact from "../components/Contact"
+import { useEffect } from "react"
 
 const HomePage = () => {
+    useEffect(()=>{ 
+         
+        window.scrollTo({
+            top:0
+        })
+    },[])
     return (
         <>
             <Nav />

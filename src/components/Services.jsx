@@ -17,19 +17,19 @@ const Services = () => {
                         <h4>Work</h4>
                     </div>
                 </Link>
-
-                <Link to="/services/transport">
-                    <div>
-                        <img src={imgTransport} alt="" />
-                        <h4>Transport</h4>
-                    </div>
-                </Link>
                 <Link to="/services/rent">
                     <div>
                         <img src={imgRent} alt="" />
                         <h4>Rent</h4>
                     </div>
                 </Link>
+                <Link to="/services/transport">
+                    <div>
+                        <img src={imgTransport} alt="" />
+                        <h4>Transport</h4>
+                    </div>
+                </Link>
+
                 <Link to="/services/health">
                     <div>
                         <img src={imgHealth} alt="" />
