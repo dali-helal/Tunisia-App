@@ -7,8 +7,6 @@ import { useEffect, useState } from "react";
 import Pagination from "../pages/Pagination";
 import House from "../components/House.jsx";
 import { Link } from "react-router-dom";
-import { useEffect } from "react";
-
 
 const Rent = () => {
     const [page, setPage] = useState(1);
