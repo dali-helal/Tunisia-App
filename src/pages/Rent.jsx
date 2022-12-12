@@ -1,6 +1,6 @@
 import imgRent from "../assets/imgrent.png"
 import { FaSearch, FaPlusCircle } from 'react-icons/fa';
-import { TextField } from "@mui/material";
+import { TextField, Skeleton } from "@mui/material";
 import FileBase64 from 'react-file-base64';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useEffect, useState } from "react";
@@ -11,34 +11,54 @@ import { Link } from "react-router-dom";
 const Rent = () => {
     const [page, setPage] = useState(1);
     const [pages, setPages] = useState(1);
-    const [houses , setHouses] = useState([]);
-    const [name , setName] = useState("");
-    const [description , setDescription] = useState("");
-    const [price , setPrice] = useState("");
-    const [location , setLocation] = useState("");
-    const [phone , setPhone] = useState("");
-    const [picture , setPicture] = useState("");
+    const [houses, setHouses] = useState([]);
+    const [name, setName] = useState("");
+    const [description, setDescription] = useState("");
+    const [price, setPrice] = useState("");
+    const [location, setLocation] = useState("");
+    const [phone, setPhone] = useState("");
+    const [picture, setPicture] = useState("");
+    const [loading, setLoading] = useState(false);
 
-    useEffect(()=>{
-        async function fetchData(){
-            const response = await fetch(`http://localhost:5000/rent/getAllHouses?page=${page}`);
-            const data = await response.json();
+    let skeletons = (
+        <>
+            <Skeleton variant="rectangular" height={412} />
+            <Skeleton variant="rectangular" height={412} />
+            <Skeleton variant="rectangular" height={412} />
+            <Skeleton variant="rectangular" height={412} />
+            <Skeleton variant="rectangular" height={412} />
+            <Skeleton variant="rectangular" height={412} />
+        </>
+    )
 
-            setHouses(data.houses);
-            setPages(data.numberOfPages)
+    useEffect(() => {
+        async function fetchData() {
+            try {
+                setLoading(true);
+                const response = await fetch(`http://localhost:5000/rent/getAllHouses?page=${page}`);
+                const data = await response.json();
+
+                await new Promise(r => setTimeout(r, 300));
+
+                setLoading(false);
+                setHouses(data.houses);
+                setPages(data.numberOfPages);
+            } catch (err) {
+                console.error(err);
+            }
         }
         fetchData();
-    } , [page])
+    }, [page])
 
-    async function submitHandler(e){
+    async function submitHandler(e) {
         e.preventDefault();
 
-        const response = await fetch("http://localhost:5000/rent/insertHouse" , {
-            method:"POST",
-            headers:{
-                "content-type":"application/json"
+        const response = await fetch("http://localhost:5000/rent/insertHouse", {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
             },
-            body:JSON.stringify({
+            body: JSON.stringify({
                 name,
                 description,
                 price,
@@ -49,8 +69,8 @@ const Rent = () => {
         })
         const data = await response.json();
 
-        if(data.msg == "house inserted successfully"){
-            setHouses([...houses , {
+        if (data.msg == "house inserted successfully") {
+            setHouses([...houses, {
                 name,
                 description,
                 price,
@@ -59,7 +79,6 @@ const Rent = () => {
                 picture
             }]);
         }
-
 
     }
 
@@ -70,12 +89,7 @@ const Rent = () => {
             }
         }
     })
-    useEffect(()=>{  
-        window.scrollTo({
-            top:0
-        })
-       
-    },[])
+
     return (
         <section id="rent-page">
             <div className="header">
@@ -101,9 +115,9 @@ const Rent = () => {
             <div className="container-main">
                 <div className="container-grid">
                     {
-                        houses.map((item,index ,arr)=>{
-                            return(
-                                <House 
+                        loading ? skeletons : houses.map((item, index, arr) => {
+                            return (
+                                <House
                                     key={item._id}
                                     id={item._id}
                                     name={item.name}
@@ -120,27 +134,27 @@ const Rent = () => {
                             <TextField
                                 label="Enter name"
                                 value={name}
-                                onChange={(e)=>{ setName(e.target.value) }}
+                                onChange={(e) => { setName(e.target.value) }}
                             />
                             <TextField
                                 label="Enter description"
                                 value={description}
-                                onChange={(e)=>{setDescription(e.target.value)}}
+                                onChange={(e) => { setDescription(e.target.value) }}
                             />
                             <TextField
                                 label="Enter price "
                                 value={price}
-                                onChange={(e)=>{ setPrice(e.target.value) }}
+                                onChange={(e) => { setPrice(e.target.value) }}
                             />
                             <TextField
                                 label="Enter location"
                                 value={location}
-                                onChange={(e)=>{ setLocation(e.target.value) }}
+                                onChange={(e) => { setLocation(e.target.value) }}
                             />
                             <TextField
                                 label="Enter phone number"
                                 value={phone}
-                                onChange={(e)=>{ setPhone(e.target.value) }}
+                                onChange={(e) => { setPhone(e.target.value) }}
                             />
                             <FileBase64
                                 multiple={false}

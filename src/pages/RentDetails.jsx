@@ -1,5 +1,4 @@
 import React from "react";
-import house from "../assets/house.png";
 import { FaStar , FaUserCircle , FaLocationArrow } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import { useEffect , useState } from "react";
@@ -106,7 +105,7 @@ export default function(){
                 </div>
 
                 <div className="form">
-                    <input type="text" />
+                    <input type="text" placeholder="Enter comment" />
                     <button>
                         <FaLocationArrow color="white" />
                         <p>Send</p>

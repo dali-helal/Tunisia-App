@@ -92,7 +92,7 @@ export default function () {
         break;
       case "ok":
         sessionStorage.setItem("profile", JSON.stringify(data));
-        navigate("/");
+        navigate("/home-page");
         break;
       default:
         break;
@@ -186,22 +186,22 @@ export default function () {
             </h3>
           }
         </form>
-        <Snackbar autoHideDuration={5000} open={error1} onClose={handleClose}>
+        <Snackbar autoHideDuration={3000} open={error1} onClose={handleClose}>
           <Alert severity="error" onClose={handleClose} variant="filled" >
             user with the given email doesn't exist
           </Alert>
         </Snackbar>
-        <Snackbar autoHideDuration={5000} open={error2} onClose={handleClose}>
+        <Snackbar autoHideDuration={3000} open={error2} onClose={handleClose}>
           <Alert severity="error" onClose={handleClose} variant="filled" >
             wrong password
           </Alert>
         </Snackbar>
-        <Snackbar autoHideDuration={5000} open={error3} onClose={handleClose}>
+        <Snackbar autoHideDuration={3000} open={error3} onClose={handleClose}>
           <Alert severity="error" onClose={handleClose} variant="filled" >
             user with the given email already exists
           </Alert>
         </Snackbar>
-        <Snackbar autoHideDuration={5000} open={success} onClose={handleClose}>
+        <Snackbar autoHideDuration={3000} open={success} onClose={handleClose}>
           <Alert severity="success" onClose={handleClose} variant="filled" >
             user created successfully
           </Alert>
