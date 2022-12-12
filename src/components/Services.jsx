@@ -38,7 +38,7 @@ const Services = () => {
                         <h4>Health</h4>
                     </div>
                 </Link>
-                <Link to="/services/work">
+                <Link to="/services/weather">
                     <div>
                         <img src={sun} alt="" />
                         <h4>weather</h4>

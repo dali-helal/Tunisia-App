@@ -1,10 +1,10 @@
-
+import React from "react";
 
 const Transport=()=>{
 
     return(
         <>
-        <div>Page Transport </div>
+            <iframe src="https://sntri.com.tn/" title="description" style={{width:"100%" , height:"100vh"}} ></iframe>
         </>
     )
 }

@@ -8,6 +8,8 @@ import Health from "./pages/Health"
 import Rent from "./pages/Rent"
 import RentDetails from "./pages/RentDetails"
 import Settings from "./pages/Settings"
+import Weather from "./pages/Weather"
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -16,6 +18,7 @@ const App = () => {
         <Route path="/home-page" element={<HomePage />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/services/work" element={<Work/>} />  
+        <Route path="/services/weather" element={ <Weather/> } />
         <Route path="/services/transport" element={<Transport/>} /> 
         <Route path="/services/health" element={<Health/>} /> 
         <Route path="/services/rent" element={<Rent/>} /> 
