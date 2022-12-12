@@ -1,4 +1,5 @@
 import imgWorks from "../assets/imgWorks.png"
+import mobile from "../assets/workMobile.png"
 import { FaSearch, FaPlusCircle } from 'react-icons/fa';
 import { TextField } from "@mui/material";
 import FileBase64 from 'react-file-base64';
@@ -24,10 +25,10 @@ const Work = () => {
   return (
     <section className="works">
       <div className="img-work" >
-        <img src={imgWorks} alt="" />
+        <img src={ window.innerWidth > 640 ? imgWorks : mobile }  alt="" />
       </div>
 
-      <header className="">
+      <header className="" style={{ paddingTop:` ${ window.innerHeight > 640 ? "20vh" : "28vh" }  ` }}>
         <div className="search">
           <FaSearch size={"20px"} color="#777" />
           <input placeholder="search for jobs "

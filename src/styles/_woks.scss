@@ -141,3 +141,37 @@
         }
     }
 }
+
+@media(max-width:640px){
+    .works{
+        header{
+            padding-top: 28vh;
+            justify-content: center;
+        }
+
+        .conatiner-main{
+            flex-direction: column-reverse;
+            padding:1rem 3vw;
+
+            .container-form{
+                width: 100%;
+            }
+
+            .container-grid{
+                width: 100%;
+
+                .item{
+                    .details{
+                        h2{
+                            font-size: .95rem;
+                        }
+
+                        p{
+                            line-height: 2rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

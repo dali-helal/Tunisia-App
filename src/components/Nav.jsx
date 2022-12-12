@@ -4,7 +4,7 @@ import { Link } from "react-router-dom"
 import { useEffect, useState } from "react"
 import decode from "jwt-decode";
 import avatar from "../assets/avatar.png";
-import { FaCog, FaSignOutAlt } from "react-icons/fa";
+import { FaCog, FaSignOutAlt , FaUserAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const Nav = () => {
@@ -68,14 +68,21 @@ const Nav = () => {
                 <a href="#about">About</a>
                 <a href="#contact">Contact</a>
                 <div className="wrapper">
-                    <div onClick={() => { navigate("/settings") }}>
-                        <FaCog color="#fff" />
-                        <h3>Settings</h3>
+                    {
+                        profile ? <>
+                            <div onClick={() => { navigate("/settings") }}>
+                                <FaCog color="#fff" />
+                                <h3>Settings</h3>
+                            </div>
+                            <div onClick={() => { setProfile(null); sessionStorage.clear(); navigate("/"); }}>
+                                <FaSignOutAlt color="#fff" />
+                                <h3>Sign out</h3>
+                            </div>
+                        </> : <div onClick={() => { navigate("/auth"); }}>
+                        <FaUserAlt color="#fff" />
+                        <h3>Sign in</h3>
                     </div>
-                    <div onClick={() => { setProfile(null); sessionStorage.clear(); navigate("/"); }}>
-                        <FaSignOutAlt color="#fff" />
-                        <h3>Sign out</h3>
-                    </div>
+                    }
                 </div>
             </ul>
             <div className="bars" onClick={clickHandler} >
