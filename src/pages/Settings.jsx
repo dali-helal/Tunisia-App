@@ -59,7 +59,7 @@ const Settings = () => {
 
 				<div className="modify-account">
 					<h2>Account Settings </h2>
-					<form>
+					<form autoComplete="off">
 						<ThemeProvider theme={theme}>
 							<TextField
 								label="Enter name"

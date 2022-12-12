@@ -4,19 +4,23 @@ import { TextField } from "@mui/material";
 import FileBase64 from 'react-file-base64';
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useEffect } from "react";
-const Work = () => {
-  const theme = createTheme({
-    palette: {
-      primary: {
-        main: "#BF1020"
-      }
+
+const theme = createTheme({
+  palette: {
+    primary: {
+      main: "#BF1020"
     }
-  })
+  }
+})
+
+const Work = () => {
+
   useEffect(() => {
     window.scrollTo({
       top: 0
     })
   }, [])
+  
   return (
     <section className="works">
       <div className="img-work" >
