@@ -39,8 +39,6 @@ const Rent = () => {
                 const response = await fetch(`${cloud}/rent/getAllHouses?page=${page}`);
                 const data = await response.json();
 
-                await new Promise(r => setTimeout(r, 300));
-
                 setLoading(false);
                 setHouses(data.houses);
                 setPages(data.numberOfPages);
