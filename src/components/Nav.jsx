@@ -45,7 +45,7 @@ const Nav = () => {
         document.querySelector(".bars").classList.toggle("clicked");
     }
 
-    function toggler(){
+    function toggler() {
         document.querySelector(".settings").classList.toggle("visible");
     }
 
@@ -67,6 +67,16 @@ const Nav = () => {
                 <a href="#services">Services</a>
                 <a href="#about">About</a>
                 <a href="#contact">Contact</a>
+                <div className="wrapper">
+                    <div onClick={() => { navigate("/settings") }}>
+                        <FaCog color="#fff" />
+                        <h3>Settings</h3>
+                    </div>
+                    <div onClick={() => { setProfile(null); sessionStorage.clear(); navigate("/"); }}>
+                        <FaSignOutAlt color="#fff" />
+                        <h3>Sign out</h3>
+                    </div>
+                </div>
             </ul>
             <div className="bars" onClick={clickHandler} >
                 <div className="bar"></div>
@@ -77,12 +87,12 @@ const Nav = () => {
                 profile ? <div className="avatar-wrapper">
                     <img src={profile.picture == "" ? avatar : profile.picture} onClick={toggler} className="avatar" />
                     <div className="settings">
-                        <div onClick={()=>{navigate("/settings")}}>
-                            <FaCog color="#555"/>
+                        <div onClick={() => { navigate("/settings") }}>
+                            <FaCog color="#555" />
                             <h3>Settings</h3>
                         </div>
-                        <div onClick={()=>{ setProfile(null); sessionStorage.clear(); navigate("/");   }}>
-                            <FaSignOutAlt color="#555"/>
+                        <div onClick={() => { setProfile(null); sessionStorage.clear(); navigate("/"); }}>
+                            <FaSignOutAlt color="#555" />
                             <h3>Sign out</h3>
                         </div>
                     </div>

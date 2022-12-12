@@ -170,6 +170,10 @@ nav {
     nav{
         padding: 1rem 8vw;
 
+        .avatar-wrapper{
+            display: none;
+        }
+
         &>a{
             
             .logo-home{
@@ -195,6 +199,27 @@ nav {
             gap:1rem;
             overflow: hidden;
             transition: .5s;
+
+            .wrapper{
+                position: absolute;
+                display: flex;
+                flex-direction: column;
+                gap:.5rem;
+                bottom: 5%;
+
+                div{
+                    display: flex;
+                    align-items: center;
+                    gap:.5rem;
+                    color:white;
+                    
+                    h3{
+                        font-weight: 400;
+                        font-size: 1rem;
+                    }
+                }
+
+            }
 
             a{
                 color:white;

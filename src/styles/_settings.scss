@@ -186,3 +186,36 @@
     }
 
 }
+
+@media(max-width:640px){
+    .user-settings{
+        
+        .nav{
+            display: none;
+        }
+        
+        .container-main{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+            .modify-account{
+                width:100%;
+                padding: 1.5rem;
+
+                h2{
+                    text-align: center;
+                }
+            }
+
+            .container-img{
+                width: 100%;
+
+                img{
+                    width: 75%;
+                }
+            }
+        }
+
+    }
+}
