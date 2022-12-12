@@ -8,8 +8,21 @@ footer{
 
         .heart{
             color:$primary;
-            width:1rem;
+            width:.9rem;
             height:.9rem;
+        }
+    }
+}
+
+@media(max-width:640px){
+    footer{
+        p{
+            font-size: .8rem;
+
+            .heart{
+                width:.75rem;
+            height:.75rem;
+            }
         }
     }
 }

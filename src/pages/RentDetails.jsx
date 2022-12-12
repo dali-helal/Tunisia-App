@@ -2,6 +2,7 @@ import React from "react";
 import { FaStar , FaUserCircle , FaLocationArrow } from "react-icons/fa";
 import { useParams } from "react-router-dom";
 import { useEffect , useState } from "react";
+import cloud from "../api/baseURL";
 
 export default function(){
     const { id } = useParams();
@@ -12,7 +13,7 @@ export default function(){
         console.log(id);
 
         async function fetchData(){
-            const response = await fetch(`http://localhost:5000/rent/getHouseById?id=${id}`);
+            const response = await fetch(`${cloud}/rent/getHouseById?id=${id}`);
             const data = await response.json();
 
             setHouse(data);

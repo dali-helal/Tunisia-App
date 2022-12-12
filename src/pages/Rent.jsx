@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import Pagination from "../pages/Pagination";
 import House from "../components/House.jsx";
 import { Link } from "react-router-dom";
+import cloud from "../api/baseURL";
 
 const Rent = () => {
     const [page, setPage] = useState(1);
@@ -35,7 +36,7 @@ const Rent = () => {
         async function fetchData() {
             try {
                 setLoading(true);
-                const response = await fetch(`http://localhost:5000/rent/getAllHouses?page=${page}`);
+                const response = await fetch(`${cloud}/rent/getAllHouses?page=${page}`);
                 const data = await response.json();
 
                 await new Promise(r => setTimeout(r, 300));
@@ -53,7 +54,7 @@ const Rent = () => {
     async function submitHandler(e) {
         e.preventDefault();
 
-        const response = await fetch("http://localhost:5000/rent/insertHouse", {
+        const response = await fetch(`${cloud}/rent/insertHouse`, {
             method: "POST",
             headers: {
                 "content-type": "application/json"

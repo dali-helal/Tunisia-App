@@ -1,4 +1,3 @@
-
 import aboutImg from "../assets/aboutImg.png"
 
 const About = () => {

@@ -9,6 +9,7 @@ import FileBase64 from 'react-file-base64';
 import { TextField, Snackbar, Alert } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { useNavigate } from "react-router-dom";
+import url from "../api/baseURL";
 
 const theme = createTheme({
   palette: {
@@ -41,7 +42,7 @@ export default function () {
   async function signUpHandler(e) {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:5000/auth/signUp", {
+    const response = await fetch(`${url}/auth/signUp`, {
       method: "POST",
       headers: {
         "content-type": "application/json"
@@ -71,7 +72,7 @@ export default function () {
   async function signInHandler(e) {
     e.preventDefault();
 
-    const response = await fetch("http://localhost:5000/auth/signIn", {
+    const response = await fetch(`${url}/auth/signIn`, {
       method: "POST",
       headers: {
         "content-type": "application/json"
