@@ -5,6 +5,7 @@ import Services from "../components/Services"
 import img from "../assets/PageHome.png"
 import Contact from "../components/Contact"
 import { useEffect } from "react"
+import Footer from "../components/Footer"
 
 const HomePage = () => {
     useEffect(()=>{ 
@@ -21,6 +22,7 @@ const HomePage = () => {
             <About />
             <img src={img} alt="" className="banner" style={{ width: "100%" }} />
             <Contact />
+            <Footer/>
         </>
     )
 

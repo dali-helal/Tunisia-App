@@ -1,110 +1,102 @@
-import { FaUserCircle, FaUserAlt, FaInfoCircle,FaTools ,FaTrashAlt} from "react-icons/fa"
+import { FaUserCircle, FaUserAlt, FaInfoCircle, FaTools, FaTrashAlt } from "react-icons/fa"
 import { AiFillSetting } from "react-icons/ai"
 import { FiLogOut } from "react-icons/fi"
 import imgsettings from "../assets/imgSettings.png"
 import { TextField } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import { Link , useNavigate } from "react-router-dom";
+
+const theme = createTheme({
+	palette: {
+		primary: {
+			main: "#777"
+		}
+	}
+})
 
 const Settings = () => {
-    const theme = createTheme({
-        palette: {
-            primary: {
-                main: "#777"
-            }
-        }
-    })
-    return (
-        <section className="setting-user">
+	const navigate = useNavigate();
 
-            <div className="nav">
-                <div>
-                    <div className="icon-user">
-                        <div>
-                            <FaUserCircle className="user" />
-                        </div>
+	return (
+		<section className="user-settings">
+			<div className="nav">
+				<div className="wrapper">
+					<div className="top">
+						<div className="user">
+							<div>
+								<FaUserCircle className="avatar" />
+							</div>
+							<h2>Dhia Ben Hamouda </h2>
+						</div>
+						<div className="container-span">
+							<div className="inner">
+								<h4>
+									<FaUserAlt className="icon" />
+									<p>Basic info </p>
+								</h4>
 
-                        <h2>user Ben Hamouda </h2>
-                    </div>
+								<h4>
+									<FaInfoCircle className="icon" />
+									<p>about</p>
+								</h4>
 
-                    <div className="container-span">
-                        <div>
+								<h4>
+									<AiFillSetting className="icon" />
+									<p>settings</p>
+								</h4>
+							</div>
+						</div>
+					</div>
 
-                            <h4>
-                                <FaUserAlt />
-                                <p>Basic info </p>
-                            </h4>
+					<span className="link" onClick={()=>{  sessionStorage.clear(); navigate("/home-page");   }} >
+						<FiLogOut className="icon" />
+						<p>sign out </p>
+					</span>
+				</div>
+			</div>
 
-                            <h4>
-                                <div className="icon-info">
-                                    <FaInfoCircle />
-                                </div>
+			<div className="container-main">
 
-                                <p>about</p>
-                            </h4>
+				<div className="modify-account">
+					<h2>Account Settings </h2>
+					<form>
+						<ThemeProvider theme={theme}>
+							<TextField
+								label="Enter name"
+								style={{ background: "white" }}
+							/>
+							<TextField
+								label="Enter phone"
+								style={{ background: "white" }}
+							/>
+							<TextField
+								label="Enter email "
+								style={{ background: "white" }}
+							/>
+							<TextField
+								label="Enter password"
+								style={{ background: "white" }}
+							/>
+							<div className="conatiner-btn">
+								<button id="first-btn">
+									<FaTools size={"20px"} color={"white"} />
+									<p>Update  account </p>
+								</button>
+								<button>
+									<FaTrashAlt size={"20px"} />
+									<p>Delete account </p>
+								</button>
+							</div>
+						</ThemeProvider>
+					</form>
+				</div>
+				<div className="container-img">
+					<img src={imgsettings} alt="" />
+				</div>
 
-                            <h4>
-                                <div className="icon-settings ">
-                                    <AiFillSetting />
-                                </div>
-                                <p>settings</p>
-                            </h4>
+			</div>
 
-                        </div>
-
-
-                    </div>
-
-                </div>
-                <span>
-                    <div className="icon-logout">
-                        <FiLogOut size={"20px "} />
-                    </div>
-                    <p>sign out </p>
-                </span>
-            </div>
-
-            <div className="container-main">
-
-                <div className="modify-account">
-                    <h2>Account Settings </h2>
-                    <form>
-                        <ThemeProvider theme={theme}>
-                            <TextField
-                                label="Enter name"
-                                style={{background :"white"}}
-                            />
-                            <TextField
-                                label="Enter phone"
-                                style={{background :"white"}}
-                            />
-                            <TextField
-                                label="Enter email "
-                                style={{background :"white"}}
-                            />
-                            <TextField
-                                label="Enter password"
-                                style={{background :"white"}}
-                            />
-                            <div className="conatiner-btn">
-                                <button id="first-btn">
-                                 <FaTools size={"20px"} color={"white"} />
-                                <p>Update  account </p>
-                                </button>
-                                <button>
-                                    <FaTrashAlt size={"20px"}/>
-                                     <p>Delete account </p>
-                                </button>
-                            </div>
-                        </ThemeProvider>
-                    </form>
-                </div>
-                <div className="container-img">
-                    <img src={imgsettings} alt="" />
-                </div>
-
-            </div>
-
-        </section>
-    )
+		</section>
+	)
 }
 export default Settings; 
